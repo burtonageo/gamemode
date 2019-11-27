@@ -1,4 +1,4 @@
-use crate::{Status, Error};
+use crate::{Error, Status};
 use libc::pid_t;
 use std::fmt;
 

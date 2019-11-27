@@ -60,9 +60,7 @@ impl StdError for Error {
     fn description(&self) -> &str {
         match *self {
             Error::OperationFailed(ref s) => &s,
-            Error::UnsupportedPlatform => {
-                "GameMode is not supported on this platform"
-            }
+            Error::UnsupportedPlatform => "GameMode is not supported on this platform",
         }
     }
 }
