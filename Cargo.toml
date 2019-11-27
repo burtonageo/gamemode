@@ -1,0 +1,13 @@
+[package]
+name = "gamemode"
+version = "0.1.0"
+authors = ["George Burton <burtonageo@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+libc = "0.2"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+gamemode_sys = { path = "./gamemode_sys" }
