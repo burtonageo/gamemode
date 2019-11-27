@@ -1,5 +1,4 @@
-use crate::{Error, Status};
-use libc::pid_t;
+use crate::{Status, Error};
 use std::fmt;
 
 pub struct GameMode {
@@ -13,7 +12,13 @@ impl GameMode {
     }
 
     #[inline]
-    pub fn start_for(pid: pid_t) -> Result<Self, Error> {
+    pub fn start_for(
+        #[cfg(target_family = "windows")]
+        pid: libc::c_int,
+
+        #[cfg(target_family = "unix")]
+        pid: libc::pid_t,
+    ) -> Result<Self, Error> {
         let _ = pid;
         Err(Error::UnsupportedPlatform)
     }
