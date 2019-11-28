@@ -48,7 +48,7 @@ impl GameMode {
             _ => unreachable!(),
         };
 
-        match *self.pid {
+        match *self.active_pid {
             None => to_status(wrapper_gamemode_query_status()),
             Some(ref pid) => to_status(wrapper_gamemode_query_status_for(pid.get())),
         }
@@ -63,7 +63,7 @@ impl GameMode {
 
     #[inline]
     fn end_internal(&mut self) -> Result<(), Error> {
-        let result = match *self.pid {
+        let result = match *self.active_pid {
             None => wrapper_gamemode_request_end(),
             Some(ref pid) => wrapper_gamemode_request_end_for(pid.get()),
         };
