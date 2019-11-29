@@ -103,5 +103,5 @@ fn error() -> Error {
             .into_owned()
     };
 
-    Error::OperationFailed(reason)
+    Error::OperationFailed { reason }
 }

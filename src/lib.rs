@@ -45,7 +45,10 @@ pub enum Error {
     /// can be safely ignored.
     UnsupportedPlatform,
     /// An error occurred in libgamemode.
-    OperationFailed(String),
+    OperationFailed {
+        /// The reason for the failure.
+        reason: String,
+    },
 }
 
 impl fmt::Display for Error {
@@ -59,7 +62,7 @@ impl StdError for Error {
     #[inline]
     fn description(&self) -> &str {
         match *self {
-            Error::OperationFailed(ref s) => &s,
+            Error::OperationFailed { ref reason } => &reason,
             Error::UnsupportedPlatform => "GameMode is not supported on this platform",
         }
     }
