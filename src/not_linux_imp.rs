@@ -1,6 +1,9 @@
-use crate::{Status, Error};
+use crate::{Error, Status};
 use std::fmt;
 
+/// The main struct which holds the `GameMode` state.
+///
+/// On non-Linux operating systems, this type does nothing.
 pub struct GameMode {
     _priv: (),
 }
@@ -11,12 +14,13 @@ impl GameMode {
         Err(Error::UnsupportedPlatform)
     }
 
+    #[rustfmt::skip]
     #[inline]
     pub fn start_for(
-        #[cfg(target_family = "windows")]
+        #[cfg(windows)]
         pid: libc::c_int,
 
-        #[cfg(target_family = "unix")]
+        #[cfg(unix)]
         pid: libc::pid_t,
     ) -> Result<Self, Error> {
         let _ = pid;
