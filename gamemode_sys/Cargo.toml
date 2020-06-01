@@ -1,6 +1,6 @@
 [package]
 name = "gamemode_sys"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["George Burton <burtonageo@gmail.com>"]
 edition = "2018"
 build = "build.rs"
@@ -11,5 +11,5 @@ build = "build.rs"
 libc = "0.2"
 
 [target.'cfg(target_os = "linux")'.build-dependencies]
-bindgen = "0.52"
+bindgen = "0.54"
 cc = "1.0"
