@@ -21,6 +21,7 @@
 #![allow(nonstandard_style)]
 #![no_std]
 
+#[cfg(target_os = "linux")]
 use libc;
 
 #[cfg(target_os = "linux")]
