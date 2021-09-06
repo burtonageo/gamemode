@@ -11,5 +11,9 @@ build = "build.rs"
 libc = "0.2"
 
 [target.'cfg(target_os = "linux")'.build-dependencies]
-bindgen = "0.55"
 cc = "1.0"
+
+[target.'cfg(target_os = "linux")'.build-dependencies.bindgen]
+version = "0.55"
+default-features = false
+features = ["static", "runtime"]
