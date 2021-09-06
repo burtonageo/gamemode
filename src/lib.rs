@@ -52,6 +52,7 @@ pub enum Error {
 }
 
 impl fmt::Display for Error {
+    #[allow(deprecated)]
     #[inline]
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.write_str(StdError::description(self))
